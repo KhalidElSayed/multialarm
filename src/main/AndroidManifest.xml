@@ -6,15 +6,15 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Holo" >
         <activity
-            android:name="com.alorma.multialarm.MainActivity"
+            android:name="com.alorma.multialarm.ui.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- PROVIDER -->
+
+        <provider
+            android:name="com.alorma.multialarm.providers.AppBaseProvider"
+            android:authorities="com.alorma.multialarm"
+            android:exported="false" />
     </application>
 
 </manifest>
