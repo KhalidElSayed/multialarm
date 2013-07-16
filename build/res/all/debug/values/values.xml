@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: /home/alorma/android/projects/MultiAlarmProject/MultiAlarm/src/main/res/values/dimens.xml -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: /home/alorma/android/projects/MultiAlarmProject/MultiAlarm/src/main/res/values/strings.xml -->
+    <string name="action_settings">Settings</string>
+    <string name="app_name">MultiAlarm</string>
+    <string name="formatHoraAdapter">&lt;b>%1$s&lt;/b>:%2$s</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_item_list">Items</string>
+
+</resources>

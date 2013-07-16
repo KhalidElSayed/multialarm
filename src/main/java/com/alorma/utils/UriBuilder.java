@@ -26,7 +26,7 @@ public class UriBuilder {
         return Uri.parse("content://" + authority + "/" + path);
     }
 
-    public static Uri providerUriById(String authority, String path, long id) {
+    public static Uri providerUri(String authority, String path, long id) {
 
         return Uri.withAppendedPath(providerUri(authority, path), Long.toString(id));
     }

@@ -20,4 +20,4 @@
             android:layout_height="match_parent"
             android:layout_weight="1"/>
 
-</android.support.v4.widget.SlidingPaneLayout>
+</android.support.v4.widget.SlidingPaneLayout><!-- From: /home/alorma/android/projects/MultiAlarmProject/MultiAlarm/src/main/res/layout/activity_main.xml -->

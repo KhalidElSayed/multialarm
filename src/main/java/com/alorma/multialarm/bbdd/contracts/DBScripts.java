@@ -18,6 +18,7 @@ public class DBScripts {
         dbUtils.addParam(AlarmContract.REPEAT, "TEXT");
         dbUtils.addParam(AlarmContract.REPEAT_DAYS, "TEXT");
         dbUtils.addParam(AlarmContract.CATEGORY, "INTEGER");
+        dbUtils.addParam(AlarmContract.ACTIVE, "TEXT");
 
         return dbUtils.toString();
     }

@@ -27,6 +27,10 @@ public class CursorUtils {
         return cursor.getLong(cursor.getColumnIndex(column));
     }
 
+    public boolean getBoolean(String column) {
+        return cursor.getString(cursor.getColumnIndex(column)).equalsIgnoreCase("true");
+    }
+
     public static String getString(Cursor c, String column) {
         return c.getString(c.getColumnIndex(column));
     }
@@ -37,6 +41,10 @@ public class CursorUtils {
 
     public static long getLong(Cursor c, String column) {
         return c.getLong(c.getColumnIndex(column));
+    }
+
+    public static boolean getBoolean(Cursor c, String column) {
+        return c.getString(c.getColumnIndex(column)).equalsIgnoreCase("true");
     }
 
 }

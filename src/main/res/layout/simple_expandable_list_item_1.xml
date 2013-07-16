@@ -21,6 +21,5 @@
           android:paddingStart="10dp"
           android:textAppearance="?android:attr/textAppearanceListItem"
           android:fontFamily="sans-serif-thin"
-          android:textColor="@android:color/black"
           android:gravity="left|center_vertical"
         />

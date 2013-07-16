@@ -11,6 +11,11 @@ public class Alarm {
 	private String soundUri;
 	private boolean repeatMode = false;
 	private Repeat repeatDays;
+    private Long category;
+
+    public Alarm() {
+
+    }
 
 	public Alarm(String name, int hour, int minute, boolean active) {
 		this.name = name;
@@ -104,4 +109,11 @@ public class Alarm {
 		this.repeatDays = repeatDays;
 	}
 
+    public Long getCategory() {
+        return category;
+    }
+
+    public void setCategory(Long category) {
+        this.category = category;
+    }
 }
