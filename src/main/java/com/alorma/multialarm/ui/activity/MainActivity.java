@@ -43,6 +43,7 @@ public class MainActivity extends Activity implements CategoriesFragment.OnCateg
         if (AppUtils.checkFirstTime(this)) {
             dummyCategories();
             dummyAlarms();
+            slidingLayout.openPane();
         }
 
         setSlidingPanel();

@@ -29,16 +29,16 @@ import com.alorma.utils.UriBuilder;
  */
 public class AlarmsFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, AlarmsAdapter.OnAlarmStateListener {
 
-    private AlarmsAdapter adapter;
+    private SimpleCursorAdapter adapter;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         if (getArguments() != null) {
-            boolean categories = getArguments().getLong(AlarmContract.CATEGORY, -1) != -1;
-            adapter = new AlarmsAdapter(getActivity(), null, categories);
-            adapter.setOnAlarmStateListener(this);
+            String[] from = {CategoryContract.NAME};
+            int[] to = {R.id.text1};
+            adapter = new SimpleCursorAdapter(getActivity(), R.layout.simple_expandable_list_item_1, null, from, to, 0);
 
             setListAdapter(adapter);
 

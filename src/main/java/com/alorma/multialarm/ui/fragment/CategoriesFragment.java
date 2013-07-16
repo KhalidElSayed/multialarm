@@ -25,15 +25,16 @@ import com.alorma.utils.UriBuilder;
 /**
  * Created by alorma on 7/10/13.
  */
-public class CategoriesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, AdapterView.OnItemClickListener {
+public class CategoriesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, AdapterView.OnItemClickListener, View.OnClickListener {
 
     private SimpleCursorAdapter adapter;
     private OnCategoriesListener onCategoriesListener;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.ly_category, null);
-        return v;
+        view = inflater.inflate(R.layout.ly_category, null);
+        return view;
     }
 
     @Override
@@ -44,8 +45,10 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         int[] to = {R.id.text1};
         adapter = new SimpleCursorAdapter(getActivity(), R.layout.simple_expandable_list_item_1, null, from, to, 0);
 
-        ListView list = (ListView) getView().findViewById(R.id.list);
+        ListView list = (ListView) view.findViewById(R.id.list);
         list.setOnItemClickListener(this);
+
+        view.findViewById(R.id.textAll).setOnClickListener(this);
 
         list.setAdapter(adapter);
 
@@ -77,6 +80,13 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
         if (onCategoriesListener != null) {
             onCategoriesListener.onCategorySelected(id);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (onCategoriesListener != null) {
+            onCategoriesListener.onCategorySelected(-1);
         }
     }
 

@@ -2,8 +2,8 @@
                                              android:id="@+id/sliding_pane_layout"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             android:divider="?android:attr/dividerHorizontal"
                                              android:orientation="horizontal"
+                                             android:divider="?android:attr/dividerHorizontal"
                                              android:showDividers="middle">
 
 
@@ -11,13 +11,11 @@
             android:id="@+id/left_pane"
             android:layout_width="280dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:layout_weight="1"/>
+            android:layout_gravity="start"/>
 
     <FrameLayout
             android:id="@+id/content_pane"
             android:layout_width="600dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent"/>
 
 </android.support.v4.widget.SlidingPaneLayout><!-- From: /home/alorma/android/projects/MultiAlarmProject/MultiAlarm/src/main/res/layout/activity_main.xml -->

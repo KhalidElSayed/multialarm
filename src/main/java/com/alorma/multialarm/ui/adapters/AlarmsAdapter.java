@@ -20,11 +20,10 @@ import com.alorma.multialarm.bean.Alarm;
 public class AlarmsAdapter extends CursorAdapter implements OnCheckedChangeListener {
 
     private Context context;
-    private boolean showCategories;
 
     private OnAlarmStateListener onAlarmStateListener;
 
-    public AlarmsAdapter(Context context, Cursor c, boolean categories) {
+    public AlarmsAdapter(Context context, Cursor c) {
         super(context, c, 0);
         this.context = context;
     }
@@ -38,17 +37,8 @@ public class AlarmsAdapter extends CursorAdapter implements OnCheckedChangeListe
         Alarm alarm = new AlarmCursor().read(c);
 
         // SetData
-
         vh.textName.setText(alarm.getName());
-        vh.textHora.setText(Html.fromHtml(getStringTime(alarm.getHour(), alarm.getMinute())));
 
-        boolean checked = alarm.isActive();
-
-        long id = c.getLong(c.getColumnIndex(BaseColumns._ID));
-
-        vh.switch1.setChecked(checked);
-        vh.switch1.setTag(id);
-        vh.switch1.setOnCheckedChangeListener(this);
     }
 
     private String getStringTime(int hour, int minutes) {
@@ -72,7 +62,7 @@ public class AlarmsAdapter extends CursorAdapter implements OnCheckedChangeListe
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(getItemViewType(0), parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_alarma, parent, false);
         view.setTag(ViewHolder.create(view));
         return view;
     }
@@ -91,26 +81,15 @@ public class AlarmsAdapter extends CursorAdapter implements OnCheckedChangeListe
 
     private static class ViewHolder {
         public final TextView textName;
-        public final TextView textHora;
-        public final Switch switch1;
 
-        private ViewHolder(TextView textName, TextView textHora, Switch switch1) {
+        private ViewHolder(TextView textName) {
             this.textName = textName;
-            this.textHora = textHora;
-            this.switch1 = switch1;
         }
 
         public static ViewHolder create(View v) {
             TextView textName = (TextView) v.findViewById(R.id.textName);
-            TextView textHora = (TextView) v.findViewById(R.id.textHora);
-            Switch switch1 = (Switch) v.findViewById(R.id.switch1);
-            return new ViewHolder(textName, textHora, switch1);
+            return new ViewHolder(textName);
         }
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return showCategories ? R.layout.row_alarma : R.layout.row_alarma;
     }
 
     public void setOnAlarmStateListener(OnAlarmStateListener onAlarmStateListener) {
